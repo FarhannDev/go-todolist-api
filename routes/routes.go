@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter() {
+func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
 	// Endpoint task
@@ -14,4 +14,6 @@ func SetupRouter() {
 	r.GET("/task", controllers.GetTasks)
 	r.PUT("/task/:id/complete", controllers.CompleteTask)
 	r.DELETE("/task/:id", controllers.DeleteTask)
+
+	return r
 }
